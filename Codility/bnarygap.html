@@ -1,0 +1,343 @@
+
+<script> 
+function BinaryGap( N ) {
+    let strbinary = N.toString( 2 ), 
+        ContarZero = 0,
+        result = 0;
+ 
+    for ( let digit of strbinary ) {
+        if ( digit === '0' ) {
+            ContarZero += 1;
+        } else /* if ( digit === '1' ) */ {
+			if (ContarZero > result) {
+				result=ContarZero;			
+			}
+            ContarZero = 0;
+        }
+    }
+ 
+    return result;
+}
+
+</script>
+
+
+<script> 
+function CyclicRotation(vector,k) {
+	
+	var newvector=[];
+		
+	for (i = 0; i < vector.length; i++) {
+		j= (i+k)%vector.length;
+		newvector[j]=vector[i];
+		
+	}
+    return newvector;
+}
+
+</script>
+
+
+<script> 
+function OddOccurrencesInArray(vector) {
+	
+	var newvector=[];
+	
+		
+	for (i = 0; i < vector.length; i++) {
+		newvector[i]=0;
+		for (j = 0; j < vector.length; j++) {
+			if (vector[i]===vector[j] && i!=j) {
+				newvector[i]=1;
+				newvector[j]=1;			
+			}
+				
+		}
+	}
+    
+	for (i = 0; i < vector.length; i++) {
+				if (newvector[i]==0) {
+					return vector[i];
+				}
+					
+
+	}
+	
+	
+	return newvector;
+}
+
+
+
+function OddOccurrencesInArray1(vector) {
+	var s;
+	for (i = 0; i < vector.length; i++) {
+		s=s ^ vector[i];
+	}
+	return s;
+}
+
+
+function FrogJmp(X, Y, D) {
+	var n;
+	
+	n= (Y-X)/D;
+	return Math.ceil(n);
+}
+function PermMissingElem1 (vector){
+
+
+	vector.sort(function(a, b){return a - b});
+	var missing;
+	missing =1;
+	
+	for (i = 0; i < vector.length; i++)
+    {
+        if (vector[i] == missing)
+            missing +=1;
+        if (vector[i] > missing)
+            break;
+    }
+    return missing;	
+}
+
+
+function PermMissingElem (vector){
+
+	vector.sort(function(a, b){return a - b});
+	
+	if (vector.length <=1 ){
+		if (vector[i]==1)
+			return vector[i];
+		else
+			return 1;
+	}
+	else
+	{
+		for (i = 0; i < vector.length; i++) {
+			if(isNaN(vector[i]) || vector[i] ==null){
+				if (i==vector.length-1){
+					return vector[i-1]+1;
+				}
+					
+				else{
+					return vector[i+1]-1;
+				}
+					
+			}
+			
+			else {			
+			if (vector[i+1]-vector[i]>1)				
+				return vector[i]+1;			
+			}			
+		}
+	}
+}
+
+
+function simpleArraySum(ar) {
+    /*
+     * Write your code here.
+     */
+    var i, sum;
+	sum=0;
+    for (i = 0; i < ar.length; i++) {
+        sum=sum + ar[i];   
+    }
+    return sum;
+}
+
+
+function compareTriplets(a, b) {
+
+	var i;
+	var c=[];
+	c[0]=0;
+	c[1]=0;
+	
+	for (i = 0; i < a.length; i++) {
+        if (a[i]>b[i]) {
+			c[0]=c[0]+1;
+		}
+		if (b[i]>a[i]) {
+			c[1]=c[1]+1;
+		}		
+    }
+	
+	return c;
+}
+
+function PlusMinus(a){
+
+	var i;
+	var positive;
+	var negative;
+	var zero;
+	var c=[];
+	
+	positive=0;
+	negative=0;
+	zero=0;
+	
+	for (i = 0; i < a.length; i++) {
+		
+	switch(Math.sign(a[i])) {
+		case 1:
+			positive+=1;
+			break;
+		case -1:
+			negative+=1;
+			break;
+		case 0:
+			zero+=1;
+			break;
+		}
+	}
+	
+	positive= positive/a.length;
+	positive= parseFloat(positive.toFixed(2));
+	
+	negative=negative/a.length;
+	negative=parseFloat(negative.toFixed(2));
+	
+	zero=zero/a.length;
+	zero=parseFloat(zero.toFixed(2));
+	
+	c[0]=positive;
+	c[1]=negative;
+	c[2]=zero;
+	return c;
+	
+	
+	//process.stdout.write(positive + '\n');
+	//process.stdout.write(negative + '\n');
+	//process.stdout.write(zero + '\n');
+	
+
+}
+
+function aVeryBigSum(ar) {
+
+	var i;
+	let sum = BigInt(0n);
+	for (i = 0; i < ar.length; i++) {
+		console.log(ar[i] + '\n');
+		sum= BigInt(sum) + BigInt(ar[i]);
+	}
+	return sum;
+
+}
+
+
+function diagonalDifference(arr) {
+    // Write your code here
+	var i;
+	var j;
+	var sum=0;	
+	var diff;
+	diff=0;
+	
+	for (i = 0; i < arr.length; i++) {
+		for (j = 0; j < arr.length; j++) {		
+			if (j === (arr.length - 1 - i )){
+				diff=diff+parseInt(arr[i][j]);
+
+			}
+				
+			if (j ===i)
+			{
+				sum=sum + parseInt(arr[i][j]);
+			}
+			
+		}
+	}
+	
+	return Math.abs(sum-diff);
+}
+
+
+function A(){
+
+	var i;
+	for (i = 0; i < a.length; i++) {
+}
+
+}
+
+
+
+function staircase(n) {
+
+	var i,j;
+	
+	var res ='';
+		 
+		 
+	for (i = 0; i < n -1; i++) { // espaços vazios menos 1 caractere #
+		
+		for (j = i; j < n; j++) {
+			res= res +  String.fromCharCode(32);
+				
+		}
+
+		for (j = 0; j <= i; j++) { // caractere tralha
+			res= res +  String.fromCharCode(35);
+				
+		}
+	
+		res = res + '\n';
+	
+	}	 
+		 
+		//process.stdout.write(res);
+		 return res;
+}
+
+
+function miniMaxSum(arr) {
+
+	var i,summax,summin;
+	summax=0;
+	summin=0;
+	
+	for (i = 1; i < arr.length; i++) {
+		summax= summax + arr[i];
+	}
+	
+	for (i = 0; i < arr.length -1; i++) {
+		summin= summin + arr[i];
+	}
+	
+	return (summin + '' + summax );
+	
+}
+
+
+
+</script>
+
+
+
+
+<html>
+<script>
+//var pvector = [-1,0,5,-1,0,2,-1];
+var pvector = [1,2,3,4,5];
+const mat = [ 
+	[11, 2,4], 
+	[4, 5, 6], 
+	[10, 8, -12] 
+]; 
+//pvector=[1000000001,1000000002,1000000003,1000000004,1000000005];
+//alert(OddOccurrencesInArray1(pvector));
+//alert(FrogJmp(10,85,30));
+//alert(PermMissingElem1(pvector));
+//alert(simpleArraySum(pvector));
+//alert(compareTriplets(pvector,pvector2));
+//alert(PlusMinus(pvector));
+//alert(aVeryBigSum(pvector));
+//alert(diagonalDifference(mat));
+//alert(staircase(6));
+alert(miniMaxSum(pvector));
+</script>
+</html>
