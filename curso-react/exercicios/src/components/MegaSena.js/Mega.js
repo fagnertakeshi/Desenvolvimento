@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Text, TextInput, View} from 'react-native'
 import estilo from '../estilo'
 import Estilo from '../estilo'
-
+import MegaNumero from './MegaNumero'
 
 
 
@@ -13,12 +13,24 @@ export default class Mega extends React.Component {
             numeros:[]
         }
 
+    // gerarNumeros = ()=> {
+    //    const numeros =  Array(this.state.qtdNumeros)
+    //         .fill()
+    //         .reduce(n => [...n,this.gerarNumeroNaoContido(n)],[])
+    //         .sort((a,b) => a-b)
+    //     this.setState({numeros})
+    // }
+    
     gerarNumeros = ()=> {
-       const numeros =  Array(this.state.qtdNumeros)
-            .fill()
-            .reduce(n => [...n,this.gerarNumeroNaoContido(n)],[])
+        const {qtdNumeros} =  this.state
+        const numeros = []
+        for (let i=0;i< qtdNumeros;i++) {
+            const n= this.gerarNumeroNaoContido(numeros)
+            numeros.push(n)
+        }
+        numeros.sort((a,b)=>a-b)
         this.setState({numeros})
-    }
+     }
 
     gerarNumeroNaoContido = nums => {
         const novo= parseInt(Math.random() * 60) + 1
@@ -29,9 +41,17 @@ export default class Mega extends React.Component {
         this.setState({qtdNumeros: +qtde})
     }
     
+    exibirNumeros =() => {
+        //console.log(1)
+        const nums=this.state.numeros
+        return nums.map(num=> {
+                return <MegaNumero num={num} />
+        })
+    }
     render() {
         return (
             <>
+            
             <Text style={Estilo.txtG}>
                 Gerador de Mega-Sena {this.state.qtdNumeros}
             </Text>
@@ -46,13 +66,20 @@ export default class Mega extends React.Component {
                     title='Gerar'
                     onPress={this.gerarNumeros}>
                 </Button>
-                <View >
-                <Text style={Estilo.txtG}>
+                <View style={{flexDirection:'row'}                   
+                }>
+                    {this.exibirNumeros()}     
+                </View>    
+                
+               
+                
+                {/* <Text style={Estilo.txtG}>
                     {this.state.numeros.join(',')}
-                </Text>
-                </View>
+                </Text> */}
+               
                 
             </>
+            
               
 
         )

@@ -5,6 +5,7 @@ import { StyleSheet, Text, SafeAreaView ,View} from 'react-native';
 import FlexboxV2 from './src/components/layout/FlexboxV2';
 import Quadrado from './src/components/layout/Quadrado';
 import Mega from './src/components/MegaSena.js/Mega';
+import MegaNumero from './src/components/MegaSena.js/MegaNumero';
 import ListaProdutosV2 from './src/components/produtos/ListaProdutosV2';
 // import ListaProdutos from './src/components/produtos/ListaProdutos';
 //import Primeiro from './src/components/Primeiro'
@@ -22,8 +23,11 @@ import ListaProdutosV2 from './src/components/produtos/ListaProdutosV2';
 export default function App() {
   return (
     // <View style={styles.container}>
+    
     <View>
       <Mega qtdNumeros={7}/>
+  
+      {/* <MegaNumero num={7} /> */}
       {/* <FlexboxV2/> */}
      {/* <ListaProdutosV2/>  */}
       {/* Double mustach - passando um objeto para o componente */}
