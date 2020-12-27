@@ -45,7 +45,7 @@ export default class Mega extends React.Component {
         //console.log(1)
         const nums=this.state.numeros
         return nums.map(num=> {
-                return <MegaNumero num={num} />
+                return <MegaNumero key={num} num={num} />
         })
     }
     render() {
