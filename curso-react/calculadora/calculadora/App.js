@@ -74,9 +74,9 @@ export default class App  extends Component{
       <Botao label='AC'  triple onClick={this.clearMemory}/>
       <Botao label='/' operation onClick={() => this.setOperation('/')}/> 
       <Botao label='7' onClick={()=> this.addDigit(7)}/> 
-       <Botao label='8' onClick={()=> this.addDigit(8)}/> 
-       <Botao label='9' onClick={()=> this.addDigit(9)}/> 
-       <Botao label='*' operation onClick={() => this.setOperation('*')}/> 
+      <Botao label='8' onClick={()=> this.addDigit(8)}/> 
+      <Botao label='9' onClick={()=> this.addDigit(9)}/> 
+      <Botao label='*' operation onClick={() => this.setOperation('*')}/> 
       <Botao label='4' onClick={()=> this.addDigit(4)}/> 
       <Botao label='5' onClick={()=> this.addDigit(5)}/> 
       <Botao label='6' onClick={()=> this.addDigit(6)}/> 
